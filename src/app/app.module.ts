@@ -11,6 +11,7 @@ import { fakeBackendProvider } from './helpers/fake-backend';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
+    AuthService,
     fakeBackendProvider
   ],
   bootstrap: [AppComponent]

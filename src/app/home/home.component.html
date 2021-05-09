@@ -1,7 +1,7 @@
 <h1>Home Page</h1>
-<p>Welcome [NAME]</p>
+<p *ngIf="isLoggedIn()">Welcome {{ currentUser.name }}</p>
 <ul>
-    <li><a [routerLink]="['admin']">Admin</a></li>
-    <li><a [routerLink]="['login']">Login</a></li>
-    <li><a href="#">Logout</a></li>
+    <li *ngIf="isLoggedIn() && currentUser.admin"><a  [routerLink]="['admin']">Admin</a></li>
+    <li *ngIf="!isLoggedIn()"><a [routerLink]="['login']">Login</a></li>
+    <li *ngIf="isLoggedIn()"><a href="#" (click)="logout()">Logout</a></li>
 </ul>
