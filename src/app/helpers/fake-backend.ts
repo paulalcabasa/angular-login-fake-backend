@@ -19,6 +19,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             switch (true) {
                 case url.endsWith('/api/authenticate') && method === 'POST':
                     return authenticate();
+                case url.endsWith('/api/orders') && method === 'GET':
+                  //  if(headers.get('Authorization') === 'Bearer ' + localStorage.getItem('token')) {
+                        return of(new HttpResponse({ status: 200, body: [1, 2, 3] }));
+                  //  }
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
